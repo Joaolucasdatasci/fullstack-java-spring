@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name = "foods")
 @Table(name = "foods")
 @Getter
 @NoArgsConstructor
@@ -22,9 +22,23 @@ public class Food {
     private String image;
     private Integer price;
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
     public Food(FoodRequestDTO data) {
         this.image = data.image();
         this.price = data.price();
         this.title = data.title();
+        
     }
 }
